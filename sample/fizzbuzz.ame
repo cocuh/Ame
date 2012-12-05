@@ -1,0 +1,268 @@
+////|!
+MAX:27
+.//
+push
+/|!
+1
+.//
+push
+/|!
+1
+.//
+push
+
+//|.|!
+ascii0:48
+./|
+Lpush
+//||.///|||.||||.||||!
+Buzz
+./|
+Lpush
+/|.|.//../|.||||.||||!
+Fizz
+./|
+Lpush
+
+
+
+#WM:27 1 1
+#LTM:Fizz Buzz 48
+
+####LOOP####
+!|.
+loop
+.|/
+pull delete trigger
+
+#WM:MAX n
+
+//|!
+3
+.//
+push
+!||
+n%3
+./|
+Lpush
+.|/
+pull delete 3
+.||
+Lpull
+.//
+push
+
+#WM:MAX n n%3
+
+####if####
+!/.
+if n%3==0
+.|.
+Ltop
+.//
+push
+!..
+print
+####if####
+...
+
+#WM:MAX n n%3
+
+.|/
+pull
+./|
+push
+
+#WM:MAX n
+#LTM:n%3 Fizz Buzz 48
+
+/.|!
+5
+.//
+push
+!||
+n%5
+./|
+Lpush
+.|/
+pull delete 5
+.||
+Lpull
+.//
+push
+
+#WM:MAX n n%5
+#LTM:n%3 Fizz Buzz 48
+
+####if####
+!/.
+if n%5==0
+.||
+Lpull n%3
+.//
+push n%3
+#WM:MAX n n%5 n%3
+#LTM:Fizz Buzz 48
+.||
+Lpull Fizz
+.//
+push Fizz
+#WM:MAX n n%5 n%3 Fizz
+#LTM:Buzz 48
+.|.
+top Buzz
+.//
+push
+!..
+print Buzz
+#WM:MAX n n%5 n%3 Fizz
+#LTM:Buzz 48
+.|/
+pull Fizz
+
+./|
+Lpush Fizz
+
+#WM:MAX n n%5 n%3
+#LTM:Fizz Buzz 48
+.|/
+pull n%3
+
+./|
+Lpush n%3
+
+#WM:MAX n n%5
+#LTM:n%3 Fizz Buzz 48
+####if####
+...
+
+#WM:MAX n n%5
+#LTM:n%3 Fizz Buzz 48
+
+.||
+Lpull
+.//
+push
+
+#WM:MAX n n%5 n%3
+#LTM:Fizz Buzz 48
+
+!./
+n%5 * n%3
+.//
+push
+
+#WM:MAX n n%5 n%3 *
+#LTM:Fizz Buzz 48
+
+####loop####
+!|.
+loop n%5*n%3 not 0
+.|/
+.|/
+.|/
+#WM:MAX n
+#LTM:Fizz Buzz 48
+/|/|!
+.//
+#WM:MAX n 10
+#LTM:Fizz Buzz 48
+!||
+./|
+#WM:MAX n 10
+#LTM:n%10 Fizz Buzz 48
+!/|
+.//
+../
+#WM:MAX n n10
+#LTM:n%10 Fizz Buzz 48
+//|.|!
+.//
+!//
+./|
+#WM:MAX n n10 48
+#LTM:n10+48 n%10 Fizz Buzz 48
+../
+..|
+.//
+#WM:MAX n 48 n%10
+#LTM:n10+48 Fizz Buzz 48
+!//
+.//
+../
+../
+#WM:MAX n n%10+48
+#LTM:n10+48 Fizz Buzz 48
+.||
+.//
+../
+.//
+#WM:MAX n n%10+48 n10+48
+#LTM:Fizz Buzz 48
+//////|!
+.//
+#WM:MAX n n%10+48 n10+48 243
+#LTM:Fizz Buzz 48
+!./
+./|
+#WM:MAX n n%10+48 n10+48 243
+#LTM:n10+48*243 Fizz Buzz 48
+.|/
+.|/
+.||
+.//
+#WM:MAX n n%10+48 10n+48*243
+#LTM: Fizz Buzz 48
+!//
+./|
+.|/
+.|/
+.||
+.//
+#WM:MAX n n%10+48+10n+48*243
+#LTM: Fizz Buzz 48
+!..
+.//
+.//
+.//
+
+
+#WM:MAX n 0 0 0
+#LTM:Fizz Buzz 48
+####loop####
+...
+
+#WM:MAX n ? ? 0
+#LTM:Fizz Buzz 48
+
+.|/
+.|/
+.|/
+#WM:MAX n
+#LTM:Fizz Buzz 48
+/|!
+1
+.//
+push
+!//
+n+1
+./|
+Lpush
+.|/
+.|/
+.||
+.//
+#WM:MAX n+1
+#LTM:Fizz Buzz 48
+!|/
+.//
+#WM:MAX n+1 max-n-1
+#LTM:Fizz Buzz 48
+
+/|/|!
+CR
+.//
+!..
+
+####LOOP####
+...
